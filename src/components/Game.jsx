@@ -56,8 +56,9 @@ const Game = () => {
     setPokeData(temp)
   }
 
-  const handleClick = () => {
+  const handleClick = (id) => {
     shuffleArray()
+    console.log(id)
     setCurrentScore(currentScore + 1)
   }
   
