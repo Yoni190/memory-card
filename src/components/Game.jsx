@@ -10,6 +10,8 @@ const Game = () => {
   const pokemons = ['ditto', 'pikachu', 'charizard', 'bulbasaur', 'eevee', 'jigglypuff', 'mew', 'dragonite', 'squirtle', 'gardevoir']
 
   const [currentScore, setCurrentScore] = useState(0)
+  const [highScore, setHighScore] = useState(0)
+
   const [clicked, setClicked] = useState([])
   const API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
@@ -77,8 +79,9 @@ const Game = () => {
               <small>Don't click on the pictures more than once</small>
             </div>
 
-            <div>
-              Current Score: {currentScore}
+            <div className='scores'>
+              <p>Current Score: {currentScore}</p>
+              <p>High Score: {highScore}</p>
             </div>
         </header>
 
