@@ -63,7 +63,11 @@ const Game = () => {
     shuffleArray()
     
     if(clicked.includes(id)) {
+      if(clicked.length > highScore) {
+        setHighScore(clicked.length)
+      }
       setCurrentScore(0)
+      setClicked([])
     } else {
       setClicked([...clicked, id])
       setCurrentScore(currentScore + 1)
