@@ -38,12 +38,12 @@ const Game = () => {
     }
 
     
-  }, [])
+  }, [pokemons])
 
 
   const shuffleArray = () => {
-    let currentIndex = pokemons.length
-    const temp = pokemons
+    let currentIndex = pokeData.length
+    const temp = [...pokeData]
 
     while (currentIndex !== 0) {
       let randomIndex = Math.floor(Math.random() * currentIndex)
@@ -52,7 +52,7 @@ const Game = () => {
       [temp[currentIndex], temp[randomIndex]] = [temp[randomIndex], temp[currentIndex]]
     }
 
-    setPokemons(temp)
+    setPokeData(temp)
   }
 
   const handleClick = () => {
