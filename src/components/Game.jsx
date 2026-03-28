@@ -58,7 +58,7 @@ const Game = () => {
 
   const handleClick = () => {
     shuffleArray()
-    console.log(pokemons)
+    setCurrentScore(currentScore + 1)
   }
   
   return (
