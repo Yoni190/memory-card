@@ -5,10 +5,11 @@ import Pokemon from './Pokemon'
 const Game = () => {
 
   const [pokeData, setPokeData] = useState([])
-  
-  const [pokemons, setPokemons] = useState(
-      ['ditto', 'pikachu', 'charizard', 'bulbasaur', 'eevee', 'jigglypuff', 'mew', 'dragonite', 'squirtle', 'gardevoir']
-  )
+
+
+  const pokemons = ['ditto', 'pikachu', 'charizard', 'bulbasaur', 'eevee', 'jigglypuff', 'mew', 'dragonite', 'squirtle', 'gardevoir']
+
+  const [currentScore, setCurrentScore] = useState(0)
   const API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
   useEffect(() => {
@@ -38,7 +39,7 @@ const Game = () => {
     }
 
     
-  }, [pokemons])
+  }, [])
 
 
   const shuffleArray = () => {
@@ -63,8 +64,14 @@ const Game = () => {
   return (
     <div>
         <header>
-            <h1>Memory Card</h1>
-            <small>Don't click on the pictures more than once</small>
+            <div>
+              <h1>Memory Card</h1>
+              <small>Don't click on the pictures more than once</small>
+            </div>
+
+            <div>
+              Current Score: {currentScore}
+            </div>
         </header>
 
 
