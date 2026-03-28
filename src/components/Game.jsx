@@ -10,6 +10,7 @@ const Game = () => {
   const pokemons = ['ditto', 'pikachu', 'charizard', 'bulbasaur', 'eevee', 'jigglypuff', 'mew', 'dragonite', 'squirtle', 'gardevoir']
 
   const [currentScore, setCurrentScore] = useState(0)
+  const [clicked, setClicked] = useState([])
   const API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
   useEffect(() => {
@@ -58,8 +59,14 @@ const Game = () => {
 
   const handleClick = (id) => {
     shuffleArray()
-    console.log(id)
-    setCurrentScore(currentScore + 1)
+    
+    if(clicked.includes(id)) {
+      setCurrentScore(0)
+    } else {
+      setClicked([...clicked, id])
+      setCurrentScore(currentScore + 1)
+    }
+    
   }
   
   return (
