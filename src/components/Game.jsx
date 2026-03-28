@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import Pokemon from './Pokemon'
 
 const Game = () => {
 
@@ -28,9 +29,11 @@ const Game = () => {
 
     fetchPokes()
 
+
     return () => {
       isMounted = false
     }
+
     
   }, [])
 
@@ -42,9 +45,8 @@ const Game = () => {
             <small>Don't click on the pictures more than once</small>
         </header>
 
-        {pokeData?.map((poke, index) => (
-          <img src={poke?.sprites?.front_default} alt="" key={index} />
-        ))}
+
+        <Pokemon pokemons={pokeData}/>
         
     </div>
   )
