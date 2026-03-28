@@ -5,7 +5,10 @@ import Pokemon from './Pokemon'
 const Game = () => {
 
   const [pokeData, setPokeData] = useState([])
-  const pokemons = ['ditto', 'pikachu', 'charizard', 'bulbasaur', 'eevee', 'jigglypuff', 'mew', 'dragonite', 'squirtle', 'gardevoir']
+  
+  const [pokemons, setPokemons] = useState(
+      ['ditto', 'pikachu', 'charizard', 'bulbasaur', 'eevee', 'jigglypuff', 'mew', 'dragonite', 'squirtle', 'gardevoir']
+  )
   const API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
   useEffect(() => {
@@ -37,6 +40,25 @@ const Game = () => {
     
   }, [])
 
+
+  const shuffleArray = () => {
+    let currentIndex = pokemons.length
+    const temp = pokemons
+
+    while (currentIndex !== 0) {
+      let randomIndex = Math.floor(Math.random() * currentIndex)
+      currentIndex--
+
+      [temp[currentIndex], temp[randomIndex]] = [temp[randomIndex], temp[currentIndex]]
+    }
+
+    setPokemons(temp)
+  }
+
+  const handleClick = () => {
+    shuffleArray()
+    console.log(pokemons)
+  }
   
   return (
     <div>
@@ -46,7 +68,7 @@ const Game = () => {
         </header>
 
 
-        <Pokemon pokemons={pokeData}/>
+        <Pokemon pokemons={pokeData} handleClick={handleClick}/>
         
     </div>
   )
