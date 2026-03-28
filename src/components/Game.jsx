@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 const Game = () => {
 
   const [pokeData, setPokeData] = useState([])
-  const pokemons = ['ditto', 'pikachu']
+  const pokemons = ['ditto', 'pikachu', 'charizard', 'bulbasaur', 'eevee', 'jigglypuff', 'mew', 'dragonite', 'squirtle', 'gardevoir']
   const API_URL = 'https://pokeapi.co/api/v2/pokemon'
 
   useEffect(() => {
